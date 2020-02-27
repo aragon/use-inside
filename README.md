@@ -35,7 +35,7 @@ function App() {
 function Greeting() {
   const [inside, data] = useInside('papaya')
 
-  return <h2 style={{..data}}>{inside && 'papaya'}</h2>
+  return <h2 style={{...data}}>{inside && 'papaya'}</h2>
 }
 
 export default App
