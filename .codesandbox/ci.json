@@ -1,4 +1,4 @@
 {
   "packages": ["./"],
-  "sandboxes": ["new", "/examples/simple-inside"]
+  "sandboxes": ["/examples/simple-inside"]
 }
