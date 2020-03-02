@@ -5,6 +5,7 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 
 // List of contexts, created as they are requested
+// Through the inside component
 const insideContexts = new Map()
 
 // Creates the required context if it doesn’t exist.
