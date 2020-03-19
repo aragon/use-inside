@@ -2,7 +2,7 @@
   "name": "use-inside",
   "version": "0.1.0",
   "author": "Aragon Association <legal@aragon.org>",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "sideEffects": false,
