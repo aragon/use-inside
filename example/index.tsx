@@ -40,12 +40,16 @@ type ButtonProps = {
   label: string
 }
 
+type InsideData = {
+  cardColor: string
+}
+
 function Button({ label }: ButtonProps) {
   // true if Button is being used inside of Card
   const [insideCard, cardData] = useInside('Card')
 
-  // @ts-ignore
-  const buttonColor = insideCard ? cardData.cardColor : 'grey'
+  const data = cardData as InsideData
+  const buttonColor = insideCard ? data.cardColor : 'grey'
 
   // true if Button is being used inside of the Card’s footer
   const [insideCardFooter] = useInside('Card:footer')

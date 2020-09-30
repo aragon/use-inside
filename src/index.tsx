@@ -11,7 +11,7 @@ type ProviderProps = {
 
 type InsideContext = {
   inside: boolean
-  data: null | unknown
+  data: unknown
 }
 
 // List of contexts, created as they are requested
@@ -42,7 +42,7 @@ function Inside({ children, data, name }: ProviderProps) {
 
 // Use this hook to know if a given component is somewhere
 // in the tree of an <Inside> declared with the same name.
-function useInside(name: string) {
+function useInside(name: string): [boolean, unknown] {
   const { inside, data } = useContext(getContext(name))
   return [inside, data]
 }
