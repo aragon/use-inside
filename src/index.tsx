@@ -8,17 +8,22 @@ import PropTypes from 'prop-types'
 const insideContexts = new Map()
 
 // Creates the required context if it doesn’t exist.
+// @ts-ignore
 function getContext(name) {
   if (!insideContexts.has(name)) {
     insideContexts.set(name, React.createContext({ inside: false, data: null }))
   }
+  // eslint-disable-next-line
   return insideContexts.get(name)
 }
 
 // Use this component to declare a new “inside context”, by name.
+// @ts-ignore
 function Inside({ children, data, name }) {
+  // eslint-disable-next-line
   const Context = getContext(name)
   return (
+    // eslint-disable-next-line
     <Context.Provider value={{ inside: true, data }}>
       {children}
     </Context.Provider>
@@ -33,8 +38,11 @@ Inside.propTypes = {
 
 // Use this hook to know if a given component is somewhere
 // in the tree of an <Inside> declared with the same name.
+// @ts-ignore
 function useInside(name) {
+  // eslint-disable-next-line
   const { inside, data } = useContext(getContext(name))
+  // eslint-disable-next-line
   return [inside, data]
 }
 

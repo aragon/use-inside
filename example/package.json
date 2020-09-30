@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "use-inside": "link:.."
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "parcel": "^1.12.3",
+    "typescript": "^3.4.5"
+  }
+}
