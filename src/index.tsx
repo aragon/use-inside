@@ -30,7 +30,7 @@ function getContext(name: string) {
 }
 
 // Use this component to declare a new “inside context”, by name.
-function Inside({ children, data, name }: ProviderProps) {
+function Inside({ children, data, name }: ProviderProps): JSX.Element {
   const Context = getContext(name)
 
   return (
