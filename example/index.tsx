@@ -1,10 +1,15 @@
-import 'babel-polyfill'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { Inside, useInside } from 'use-inside'
 
-function Card({ header, children, footer, color = 'white' }) {
+type CardProps = {
+  header?: ReactNode
+  children?: ReactNode
+  footer?: ReactNode
+  color: string
+}
+
+function Card({ header, children, footer, color = 'white' }: CardProps) {
   // Inside elements can be seen as a way to declare “slots” in the component.
   // They can be seen as part of its API, and are particularily useful for reusable
   // components that need to behave differently based on where they are being used.
@@ -31,17 +36,20 @@ function Card({ header, children, footer, color = 'white' }) {
   )
 }
 
-Card.propTypes = {
-  header: PropTypes.string,
-  children: PropTypes.node,
-  footer: PropTypes.node,
-  color: PropTypes.string,
+type ButtonProps = {
+  label: string
 }
 
-function Button({ label }) {
+type InsideData = {
+  cardColor: string
+}
+
+function Button({ label }: ButtonProps) {
   // true if Button is being used inside of Card
   const [insideCard, cardData] = useInside('Card')
-  const buttonColor = insideCard ? cardData.cardColor : 'grey'
+
+  const data = cardData as InsideData
+  const buttonColor = insideCard ? data.cardColor : 'grey'
 
   // true if Button is being used inside of the Card’s footer
   const [insideCardFooter] = useInside('Card:footer')
@@ -57,10 +65,6 @@ function Button({ label }) {
       {label}
     </button>
   )
-}
-
-Button.propTypes = {
-  label: PropTypes.string,
 }
 
 function App() {
@@ -106,5 +110,5 @@ ReactDOM.render(
       `}
     </style>
   </>,
-  document.querySelector('#app')
+  document.getElementById('root')
 )
