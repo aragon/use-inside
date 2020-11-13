@@ -18,7 +18,7 @@ type InsideContext = {
 const insideContexts = new Map<string, React.Context<InsideContext>>()
 
 // Creates the required context if it doesn’t exist.
-function getContext(name: string) {
+function getContext(name: string): React.Context<InsideContext> {
   if (!insideContexts.has(name)) {
     insideContexts.set(
       name,
